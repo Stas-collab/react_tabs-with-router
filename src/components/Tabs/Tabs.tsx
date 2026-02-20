@@ -12,11 +12,11 @@ export const TabsPage: React.FC = () => {
     <>
       <h1 className="title">Tabs page</h1>
 
-      <Tabs {...(isValidTab ? { selectedIndex } : {})}>
+      <Tabs selectedIndex={isValidTab ? selectedIndex : -1}>
         <div className="tabs is-boxed">
           <TabList>
             {tabs.map(tab => (
-              <Tab key={tab.id} data-cy="Tab">
+              <Tab key={tab.id} data-cy="Tab" selectedClassName="is-active">
                 <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
               </Tab>
             ))}
